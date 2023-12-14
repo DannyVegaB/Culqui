@@ -1,28 +1,28 @@
-Feature: Login Page
+Feature: Pagina de Login
 
-    Feature Login page will work depending on the user credentials.
+    Feature La pagina de Login funcionara dependiendo de las credenciales.
 
 
-    Background: Pre conditions
-        Given User navigate to the automation exercise login page
+    Background: Pre condiciones
+        Given El usuario este dentro de la pagina de login
 
-    Scenario Outline: Verify successful login, when correct credentials are entered
-        When The user types a <user> in the username field
-        And The user types a <pass> in the password field
-        And The user presses Login button
-        Then The user expect that the ' <logout_option>' is displayed
+    Scenario Outline: Verificar un login exitoso when ingrese credenciales correctas
+        When El usuario ingresa <user> en el campo usuario
+        And El usuario ingresa <pass> en el campo password
+        And El usuario presiona el boton de login
+        Then El usuario espera que se muestre ' <logout_option>'
         Examples:
             | user                  | pass          | logout_option |
-            | guidosjulca@gmail.com | #Test01       | Logout        |
-            | psgenarops@gmail.com  | #Test02       | Logout        |
+            | dannyvga@gmail.com    | JoyIt@2023    | Logout        |
+            | danny_370@hotmail.com | JoyIt@2024    | Logout        |
 
-    Scenario Outline: Verify unsuccessful login, when wrong credentials are entered
-        When The user types a <user> in the username field
-        And The user types a <pass> in the password field
-        And The user presses Login button
-        Then The User should be displayed a '<error_message>'
+    Scenario Outline: Verificar Login incorrecto, when se ingresa credenciales incorrectas
+        When El usuario ingresa <user> en el campo usuario
+        And El usuario ingresa <pass> en el campo password
+        And El usuario presiona el boton de login
+        Then el usuario visualiza el mensaje '<error_message>'
         Examples:
-            | user                  | pass          | error_message                        |
-            | wronguser@gmail.com   | #Test01       | Your email or password is incorrect! |
-            | guidosjulca@gmail.com | wrongpassword | Your email or password is incorrect! |
-            | wronguser@outlook.com | wrongpassword | Your email or password is incorrect! |
+            | user                      | pass          | error_message                        |
+            | desconocido@gmail.com     | JoyIt@2023    | Your email or password is incorrect! |
+            | dannyvga@gmail.com        | error123      | Your email or password is incorrect! |
+            | desconocido@outlook.com   | error123      | Your email or password is incorrect! |
